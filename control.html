@@ -1,0 +1,28 @@
+<!doctype html> 
+<html>
+    <head></head>
+    <body>
+	 
+	<button>turn on</button>
+	<script>
+	  var btn  = document.querySelector('button') ; 
+	  btn.addEventListener('click' , handler ) ; 
+	  var out = new XMLHttpRequest() ;
+	  var off = true ; 
+	  
+	  
+	  function handler(event) {
+	  if(off){
+	    btn.innerHTML = 'turn off' ;  
+	    off =false  ;
+	    }else{
+	        btn.innerHTML = 'turn on' ;  
+	    off =true   ;
+	    }
+	    out.open('GET' , 'http://192.168.1.13:3000/changeState' , false ) ; 
+	    out.send();
+	    }
+	</script>
+    
+    </body> 
+</html>
